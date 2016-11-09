@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<robot name="dual_m10ia_cell" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find dual_m10ia_cell_support)/urdf/dual_m10ia_cell_macro.xacro"/>
+  <xacro:dual_m10ia_cell prefix=""/>
+</robot>

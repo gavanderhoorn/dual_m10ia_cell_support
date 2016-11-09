@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find fanuc_m10ia_support)/urdf/m10ia_macro.xacro"/>
+
+  <xacro:macro name="dual_m10ia_cell" params="prefix">
+
+    <!-- cell base link-->
+    <link name="${prefix}base_link" />
+
+    <!-- robots -->
+    <xacro:fanuc_m10ia prefix="left_"/>
+    <xacro:fanuc_m10ia prefix="right_"/>
+
+    <!-- place robots in 'cell' -->
+    <joint name="${prefix}base_link-left_robot" type="fixed">
+      <origin xyz="0 0.5 0" rpy="0 0 0"/>
+      <parent link="${prefix}base_link"/>
+      <child link="${prefix}left_base_link"/>
+    </joint>
+
+    <joint name="${prefix}base_link-right_robot" type="fixed">
+      <origin xyz="0 -0.5 0" rpy="0 0 0"/>
+      <parent link="${prefix}base_link"/>
+      <child link="${prefix}right_base_link"/>
+    </joint>
+
+  </xacro:macro>
+</robot>
